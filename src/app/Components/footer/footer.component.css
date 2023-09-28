@@ -1,0 +1,26 @@
+
+.info_col {
+    margin-bottom: 30px;
+    display: block;
+  }
+
+  .info_links {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: white;
+
+      &:hover {
+        color: primary1;
+      }
+    }
+  }
+
+  footer-container {
+    background-color: blue;
+  }

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="container">
+      <div class="container">
+            <h2 style="text-align: center;" class="jumbotron">WELCOME TO THE ADMIN DASHBOARD </h2>
+        </div>
+        <div class="container">
+            <h2 style="text-align: center;" class="jumbotron">FOR THE CREDITCARD SERVICE </h2>
+        </div>
+        <div class="container mt-4">
+            <h4 style="text-align: center;">
+                Admin Have the authority to Approve or Reject the Application
+            </h4>
+            
+        </div>
+        <div class="container mt-4">
+            <h4 style="text-align: center;">
+                Credicard Application table
+            </h4> 
+        </div>
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Application Id</th>
+                <th scope="col">FullName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Date of Birth</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Marital Status</th>
+                <th scope="col">Having Job</th>
+                <th scope="col">Monthly Income</th>
+                <th scope="col">Annval Income</th>
+                <th scope="col">Approve</th>
+                <th scope="col">Reject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of ApplicationData">
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.fullName}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.gender}}</td>
+                <td>{{data.dob}}</td>
+                <td>{{data.mobileNum}}</td>
+                <td>{{data.maritalStatus}}</td>
+                <td>{{data.job}}</td>
+                <td>{{data.mIncome}}</td>
+                <td>{{data.aIncome}}</td>
+                <td><button class="btn btn-primary"[disabled]='data.applStatus == "Rejected"' (click)="approveform(data)">Approve</button></td>
+                <td><button class="btn btn-danger" (click)="rejectForm(data)">Reject</button></td>
+                
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

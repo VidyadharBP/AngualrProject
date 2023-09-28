@@ -1,0 +1,235 @@
+<div class="container-fluid">
+    <div class="container">
+        <h2 style="text-align: center;" class="jumbotron">WELCOME {{this.loggedInUser|uppercase}}  </h2>
+    </div>
+    <div class="container">
+        <h2 style="text-align: center;" class="jumbotron">FOR THE CREDITCARD SERVICE </h2>
+    </div>
+    <div class="container mt-4">
+        <h4 style="text-align: center;">
+            This  is the website for provide service to the customer for applying CreditCard
+        </h4>
+        
+    </div>
+    <div class="container mb-6">
+        <div class="container mt-6" >
+            <h4 >Click below button to Apply</h4>
+            <button class="btn btn-primary mb-6" (click)="getForm()">Click Here..</button>
+            
+        </div>
+        <div class="container mt-6">
+            <h4 >Status of your application</h4>
+            <button class="btn btn-primary mb-6" (click)="CheckStatus()">Application Status</button>
+    
+        </div>
+    </div>
+
+    <div *ngIf="statusFlag1" class="container mt-4" style="border: 1px solid black;">
+        <form class="mt-4" [formGroup]="statusForm">
+            <div class="form-group row mb-3">
+                <label for="" class="col-sm-2 col-form-label">Full Name</label>
+                <div class="col-sm-6">
+                    <input type="text"  class="form-control" formControlName="fullName" placeholder="">
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label for="" class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-6">
+                <input type="email" class="form-control" formControlName="email" placeholder="">
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary m-2" (click)="check()">CheckStatus</button>
+                <button class="btn btn-danger" (click)="statusReset()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <!--Application Status  -->
+    <div class="container" *ngIf="statusFlag">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-8">
+                <h3 class="text-center mb-3">CreditCard Application Status</h3>
+                <hr>
+                <form [formGroup]="applyApp">
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Full Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" formControlName="fullName" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                        <input type="email" readonly class="form-control" formControlName="email" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" formControlName="gender" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Date of Birth</label>
+                        <div class="col-sm-10">
+                        <input type="date" readonly class="form-control" formControlName="dob" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Mobile Number</label>
+                        <div class="col-sm-10">
+                        <input type="number" readonly class="form-control" formControlName="mobileNum" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Monthly Income</label>
+                        <div class="col-sm-10">
+                        <input type="number" readonly class="form-control" formControlName="mIncome" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Annval Income</label>
+                        <div class="col-sm-10">
+                        <input type="number" readonly class="form-control" formControlName="aIncome" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Applied Date </label>
+                        <div class="col-sm-10">
+                        <input type="date" readonly class="form-control" formControlName="date" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Approval Date </label>
+                        <div class="col-sm-10">
+                        <input type="text" readonly class="form-control" formControlName="approvalDate" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label for="" class="col-sm-2 col-form-label">Application Status</label>
+                        <div class="col-sm-10">
+                        <input type="text" readonly class="form-control" formControlName="applStatus" placeholder="">
+                        </div>
+                    </div>
+                </form>
+            </div>    
+        </div>
+    </div>
+    <div class="container" *ngIf="formFlag">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-8">
+                <h3 class="text-center mb-3">CreditCard Application Form</h3>
+                <hr>
+                <!-- <form> -->
+                        <form [formGroup]="applicationForm">
+                            <h4>Personal Information</h4>
+                            <div class="form-group row mb-3">
+                                <label for="" class="col-sm-2 col-form-label">Full Name</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" formControlName="fullName" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="" class="col-sm-2 col-form-label">Father Name</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" formControlName="fatherName" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                <input type="email" class="form-control" formControlName="email" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <div class="col-md-2"> <label class="form-check-label" for="exampleCheck1">Gender</label></div>
+                                
+                                <div class="col-md-8">
+                                  <input type="radio" class="form-check-input" formControlName="gender" value="Male"> Male 
+                                  <input type="radio" class="form-check-input" formControlName="gender" value="Female"> Female
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="" class="col-sm-2 col-form-label">Date of Birth</label>
+                                <div class="col-sm-10">
+                                <input type="date" class="form-control" formControlName="dob" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label for="" class="col-sm-2 col-form-label">Highest Education</label>
+                                <div class="col-sm-10">
+                                <select type="email" class="form-control" formControlName="highEdu" placeholder="">
+                                    <option selected>Choose...</option>
+                                    <option value="University">University</option>
+                                    <option value="College">College</option>
+                                    <option value="Secondary">Secondary</option>
+                                    <option value="Primary">Primary</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-2 col-form-label">Mobile Number</label>
+                                <div class="col-sm-10">
+                                <input type="number" class="form-control" formControlName="mobileNum" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <div class="col-md-2"> <label class="form-check-label" for="exampleCheck1">Marital Status</label></div>
+                                
+                                <div class="col-md-8">
+                                  <input type="radio" class="form-check-input" formControlName="maritalStatus" value="single"> Single 
+                                  <input type="radio" class="form-check-input" formControlName="maritalStatus" value="married"> Married
+                                  <input type="radio" class="form-check-input" formControlName="maritalStatus" value="divorced"> Divorced
+                                </div>
+                            </div>
+
+                           <h4 class="mb-5">Financial Information</h4>
+                           <div class="form-group row mb-3">
+                            <div class="col-md-2"> <label class="form-check-label" for="exampleCheck1">Having Job</label></div>
+                            
+                            <div class="col-md-8">
+                              <input type="radio" class="form-check-input" formControlName="job" value="yes"> YES 
+                              <input type="radio" class="form-check-input" formControlName="job" value="no"> NO
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Monthly Income</label>
+                            <div class="col-sm-10">
+                            <input type="number" class="form-control" formControlName="mIncome" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Annval Income</label>
+                            <div class="col-sm-10">
+                            <input type="number" class="form-control" formControlName="aIncome" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <div class="col-md-2"> <label class="form-check-label" for="exampleCheck1">Would you like to insure your credit card(s)?</label></div>
+                            
+                            <div class="col-md-8">
+                              <input type="radio" class="form-check-input" formControlName="cardSec" value="yes"> YES 
+                              <input type="radio" class="form-check-input" formControlName="cardSec" value="no"> NO
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Date </label>
+                            <div class="col-sm-10">
+                            <input type="date" class="form-control" formControlName="date" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Digital Sign</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" formControlName="sign" placeholder="">
+                            </div>
+                        </div>
+                        <div class="container text-center">
+                            <button class="btn btn-primary" [disabled]="!applicationForm.valid" (click)="submitApplication()">Submit</button>
+                          </div>
+                        </form>
+                <!-- </form> -->
+            </div>
+    </div>
+</div>

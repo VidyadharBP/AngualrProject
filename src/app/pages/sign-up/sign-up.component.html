@@ -1,0 +1,51 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Register Here!!</h1>
+                <!-- <form> -->
+                    <form [formGroup]="signupForm">
+                        <div class="mb-3">
+                          <label for="userName" class="form-label">User Name</label>
+                          <input type="text" formControlName="userName" class="form-control" id="userName" >
+                          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3">
+                          <label for="password" class="form-label">Password</label>
+                          <input type="password" formControlName="password" class="form-control" id="password">
+                        </div>
+                        <div class="mb-3 form-check">
+                        <label class="form-check-label" for="exampleCheck1">Register As a</label>
+                          
+                        </div>
+                        <div class="mb-3">
+                          <input type="radio" class="form-check-input" formControlName="role" value="customer"> Customer <br>
+                          <input type="radio" class="form-check-input" formControlName="role" value="admin"> Admin
+                        </div> 
+
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" formControlName="firstName" class="form-control" id="firstName" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" formControlName="lastName" class="form-control" id="lastName" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" formControlName="email" class="form-control" id="email" >
+                          </div>
+                          <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="number" formControlName="phone" class="form-control" id="phone" >
+                          </div>
+                          
+                          <div class="container text-center">
+                            <button class="btn btn-primary" [disabled]="!signupForm.valid" (click)="formSignUp()">Submit</button>
+                          </div>
+                      </form>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</div>

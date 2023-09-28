@@ -29,26 +29,6 @@
       "email": "vbp@gmail.com",
       "phoneNumber": 801773991772,
       "id": 3
-    },
-    {
-      "userName": "Amrutha",
-      "password": "qweee",
-      "role": "admin",
-      "firstName": "amxms",
-      "lastName": "csa",
-      "email": "cwqcqw",
-      "phoneNumber": 3243434,
-      "id": 4
-    },
-    {
-      "userName": "Anamika",
-      "password": "an123456",
-      "role": "customer",
-      "firstName": "anamika",
-      "lastName": "aa",
-      "email": "anamika@gmail.com",
-      "phoneNumber": 80976553758,
-      "id": 5
     }
   ],
   "applicationData": [

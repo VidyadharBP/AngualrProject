@@ -1,0 +1,14 @@
+
+TO run Application 
+
+Server: Json Server;
+Json Server Install  : npm install -g json-server
+To Start Json Server :  json-server –watch db.json
+
+
+Angular Version
+Angular CLI: 16.0.6
+Node: 18.16.0
+Package Manager: npm 9.5.1
+OS: win32 x64
+Code Editor : Visual studio code.
